@@ -1,0 +1,49 @@
+#include <iostream>
+#include <string>
+#include "Animal.h"
+
+Animal::Animal() : name("undefined"), age(-1), sound("undefined"), isWild(false) {}
+Animal::Animal(const std::string& o_name) : name(o_name), age(-1), sound("undefined"), isWild(false) {}
+Animal::Animal(const std::string& o_name,int o_age,const std::string& o_sound,bool o_isWild): name(o_name), age(o_age), sound(o_sound), isWild(o_isWild) {}
+Animal::~Animal() {}
+
+std::string Animal::getName() { 
+    return name; }
+std::string Animal::getSound() { 
+    return sound; }
+int Animal::getAge() { 
+    return age; }
+bool Animal::isWildAnimal() { 
+    return isWild; }
+
+void Animal::printInfo() {
+    std::cout << "Name is: " << name << std::endl;
+    std::cout << "Age is: " << age << std::endl;
+    std::cout << "Sound is: " << sound << std::endl;
+    std::cout << "Is Wild ?: " << (isWild ? "true" : "false") << std::endl;
+}
+
+Cat::Cat() : Animal(), breed("unknown"), numChildren(-1) {}
+Cat::Cat(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,const std::string& o_breed, int children): Animal(o_name, o_age, o_sound, o_isWild), breed(o_breed), numChildren(children) {}
+Cat::~Cat() {}
+
+Dog::Dog() : Animal(), colour("unknown"), numChildren(-1) {}
+Dog::Dog(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,const std::string& o_colour, int children): Animal(o_name, o_age, o_sound, o_isWild), colour(o_colour), numChildren(children) {}
+Dog::~Dog() {}
+
+Parrot::Parrot() : Animal(), breed("unknown"), language("unknown") {}
+Parrot::Parrot(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,const std::string& o_breed,const std::string& o_language): Animal(o_name, o_age, o_sound, o_isWild), breed(o_breed), language(o_language) {}
+Parrot::~Parrot() {}
+
+Fish::Fish() : Animal(), died(false) {}
+Fish::Fish(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,bool o_died)
+    : Animal(o_name, o_age, o_sound, o_isWild), died(o_died) {}
+Fish::~Fish() {}
+
+Rabbit::Rabbit() : Animal(), domestic(false) {}
+Rabbit::Rabbit(std::string o_name, int o_age,const std::string& o_sound, bool o_isWild,bool isDomestic): Animal(o_name, o_age, o_sound, o_isWild), domestic(isDomestic) {}
+Rabbit::~Rabbit() {}
+
+Lion::Lion() : Animal(), wounded(false), hungry(false) {}
+Lion::Lion(std::string o_name, int o_age,const std::string& o_sound, bool o_isWild,bool isWounded, bool isHungry): Animal(o_name, o_age, o_sound, o_isWild), wounded(isWounded), hungry(isHungry) {}
+Lion::~Lion() {}
