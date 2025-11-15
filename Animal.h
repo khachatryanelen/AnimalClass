@@ -8,17 +8,16 @@ class Animal {
 private:
     std::string name;
     int age;
-    std::string sound;
     bool isWild;
 
 public:
     Animal();
     Animal(const std::string& o_name);
-    Animal(const std::string& o_name,int o_age,const std::string& o_sound,bool o_isWild);
+    Animal(const std::string& o_name,int o_age,bool o_isWild);
     ~Animal();
 
     std::string getName();
-    std::string getSound();
+    virtual std::string getSound();
     int getAge();
     bool isWildAnimal();
     void printInfo();
@@ -32,7 +31,8 @@ private:
 
 public:
     Cat();
-    Cat(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,const std::string& o_breed, int children);
+    Cat(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed, int children);
+    std::string getSound();
     ~Cat();
 };
 
@@ -42,7 +42,8 @@ public:
     int numChildren;
 
     Dog();
-    Dog(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,const std::string& o_colour, int children);
+    Dog(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_colour, int children);
+    std::string getSound();
     ~Dog();
 };
 
@@ -52,7 +53,8 @@ public:
     std::string language;
 
     Parrot();
-    Parrot(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,const std::string& o_breed,const std::string& o_language);
+    Parrot(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed,const std::string& o_language);
+    std::string getSound();
     ~Parrot();
 };
 
@@ -61,7 +63,8 @@ public:
     bool died;
 
     Fish();
-    Fish(const std::string& o_name, int o_age,const std::string& o_sound, bool o_isWild,bool o_died);
+    Fish(const std::string& o_name, int o_age, bool o_isWild,bool o_died);
+    std::string getSound();
     ~Fish();
 };
 
@@ -70,7 +73,8 @@ public:
     bool domestic;
 
     Rabbit();
-    Rabbit(std::string o_name, int o_age,const std::string& o_sound, bool o_isWild,bool isDomestic);
+    Rabbit(std::string o_name, int o_age, bool o_isWild,bool isDomestic);
+    std::string getSound();
     ~Rabbit();
 };
 
@@ -80,7 +84,8 @@ public:
     bool hungry;
 
     Lion();
-    Lion(std::string o_name, int o_age,const std::string& o_sound, bool o_isWild,bool isWounded, bool isHungry);
+    Lion(std::string o_name, int o_age, bool o_isWild,bool isWounded, bool isHungry);
+    std::string getSound();
     ~Lion();
 };
 
