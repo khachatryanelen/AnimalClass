@@ -14,10 +14,10 @@ public:
     Animal();
     Animal(const std::string& o_name);
     Animal(const std::string& o_name,int o_age,bool o_isWild);
-    ~Animal();
+    virtual ~Animal();
 
     std::string getName();
-    virtual std::string getSound();
+    virtual std::string getSound() const=0;
     int getAge();
     bool isWildAnimal();
     void printInfo();
@@ -32,7 +32,7 @@ private:
 public:
     Cat();
     Cat(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed, int children);
-    std::string getSound();
+    std::string getSound()const override;
     ~Cat();
 };
 
@@ -43,7 +43,7 @@ public:
 
     Dog();
     Dog(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_colour, int children);
-    std::string getSound();
+    std::string getSound()const override;
     ~Dog();
 };
 
@@ -54,7 +54,7 @@ public:
 
     Parrot();
     Parrot(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed,const std::string& o_language);
-    std::string getSound();
+    std::string getSound()const override;
     ~Parrot();
 };
 
@@ -64,7 +64,7 @@ public:
 
     Fish();
     Fish(const std::string& o_name, int o_age, bool o_isWild,bool o_died);
-    std::string getSound();
+    std::string getSound()const override;
     ~Fish();
 };
 
@@ -74,7 +74,7 @@ public:
 
     Rabbit();
     Rabbit(std::string o_name, int o_age, bool o_isWild,bool isDomestic);
-    std::string getSound();
+    std::string getSound()const override;
     ~Rabbit();
 };
 
@@ -85,7 +85,7 @@ public:
 
     Lion();
     Lion(std::string o_name, int o_age, bool o_isWild,bool isWounded, bool isHungry);
-    std::string getSound();
+    std::string getSound()const override;
     ~Lion();
 };
 
