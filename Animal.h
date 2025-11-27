@@ -14,6 +14,8 @@ public:
     Animal();
     Animal(const std::string& o_name);
     Animal(const std::string& o_name,int o_age,bool o_isWild);
+    Animal(Animal&& other);
+    Animal& operator=(Animal&& other);
     virtual ~Animal();
 
     std::string getName();

@@ -5,6 +5,28 @@
 Animal::Animal() : name("undefined"), age(-1), isWild(false) {}
 Animal::Animal(const std::string& o_name) : name(o_name), age(-1), isWild(false) {}
 Animal::Animal(const std::string& o_name,int o_age,bool o_isWild): name(o_name), age(o_age), isWild(o_isWild) {}
+Animal::Animal(Animal&& other){
+    name=other.name;
+    age=other.age;
+    isWild=other.isWild;
+
+    other.name="";
+    other.age=0;
+    other.isWild=false;
+}
+Animal& Animal::operator=(Animal&& other){
+    if(this!=&other){
+        name=other.name;
+        age=other.age;
+        isWild=other.isWild;
+
+        other.name="";
+        other.age=0;
+        other.isWild=false;
+    }
+    return *this;
+}
+
 Animal::~Animal() {}
 
 std::string Animal::getName() { 
