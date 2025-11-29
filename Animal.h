@@ -6,23 +6,31 @@
 
 class Animal {
 private:
+    static int count;
     std::string name;
     int age;
     bool isWild;
+    int weight;
 
 public:
     Animal();
     Animal(const std::string& o_name);
-    Animal(const std::string& o_name,int o_age,bool o_isWild);
+    Animal(const std::string& o_name,int o_age,bool o_isWild,int weight);
     Animal(Animal&& other);
     Animal& operator=(Animal&& other);
     virtual ~Animal();
+
+    bool operator==(const Animal& other);
+    bool operator>(const Animal& other);
+    bool operator<(const Animal& other);
 
     std::string getName();
     virtual std::string getSound() const=0;
     int getAge();
     bool isWildAnimal();
     void printInfo();
+    int getWeight();
+    static int getCount();
 };
 
 
@@ -33,7 +41,7 @@ private:
 
 public:
     Cat();
-    Cat(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed, int children);
+    Cat(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed, int children,int weight);
     std::string getSound()const override;
     ~Cat();
 };
@@ -44,7 +52,7 @@ public:
     int numChildren;
 
     Dog();
-    Dog(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_colour, int children);
+    Dog(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_colour, int children,int weight);
     std::string getSound()const override;
     ~Dog();
 };
@@ -55,7 +63,7 @@ public:
     std::string language;
 
     Parrot();
-    Parrot(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed,const std::string& o_language);
+    Parrot(const std::string& o_name, int o_age, bool o_isWild,const std::string& o_breed,const std::string& o_language,int weight);
     std::string getSound()const override;
     ~Parrot();
 };
@@ -65,7 +73,7 @@ public:
     bool died;
 
     Fish();
-    Fish(const std::string& o_name, int o_age, bool o_isWild,bool o_died);
+    Fish(const std::string& o_name, int o_age, bool o_isWild,bool o_died,int weight);
     std::string getSound()const override;
     ~Fish();
 };
@@ -75,7 +83,7 @@ public:
     bool domestic;
 
     Rabbit();
-    Rabbit(std::string o_name, int o_age, bool o_isWild,bool isDomestic);
+    Rabbit(std::string o_name, int o_age, bool o_isWild,bool isDomestic,int weight);
     std::string getSound()const override;
     ~Rabbit();
 };
@@ -86,7 +94,7 @@ public:
     bool hungry;
 
     Lion();
-    Lion(std::string o_name, int o_age, bool o_isWild,bool isWounded, bool isHungry);
+    Lion(std::string o_name, int o_age, bool o_isWild,bool isWounded, bool isHungry,int weight);
     std::string getSound()const override;
     ~Lion();
 };
