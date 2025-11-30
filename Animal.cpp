@@ -16,6 +16,7 @@ Animal::Animal(Animal&& other){
     other.age=0;
     other.isWild=false;
     other.weight=0;
+    count++;
 }
 Animal& Animal::operator=(Animal&& other){
     if(this!=&other){
